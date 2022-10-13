@@ -20,32 +20,32 @@ const result = getComputerChoice(choice);
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == "rock" && computerSelection == "rock") {
-    return "Go Again!";
+    return "No Points. Go Again!";
   }
   if (playerSelection == "rock" && computerSelection == "paper") {
-    return "Paper Beats Rock!";
+    return "You Lose. Paper Beats Rock!";
   }
 
   if (playerSelection == "rock" && computerSelection == "scissors") {
-    return "Rock Beats Scissors!";
+    return "You win! Rock Beats Scissors!";
   }
   if (playerSelection == "paper" && computerSelection == "rock") {
-    return "Paper Beats Rock!";
+    return "You win! Paper Beats Rock!";
   }
   if (playerSelection == "paper" && computerSelection == "paper") {
-    return "Go Again!";
+    return "No Points. Go Again!";
   }
   if (playerSelection == "paper" && computerSelection == "scissors") {
-    return "Scissors Beats Paper!";
+    return "You Lose. Scissors Beats Paper!";
   }
   if (playerSelection == "scissors" && computerSelection == "rock") {
-    return "Scissors Beats Rock!";
+    return "You Lose. Scissors Beats Rock!";
   }
   if (playerSelection == "scissors" && computerSelection == "paper") {
-    return "Scissors Beats Paper!";
+    return "You Win! Scissors Beats Paper!";
   }
   if (playerSelection == "scissors" && computerSelection == "scissors") {
-    return "Go Again!";
+    return "No Points. Go Again!";
   } else {
     return "Oh noes!";
   }
@@ -55,3 +55,5 @@ const playerSelection = "rock";
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
 // console.log(computerSelection);
+
+function game() {}
