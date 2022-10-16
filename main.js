@@ -17,43 +17,60 @@ const choice = ["rock", "paper", "scissors"];
 const result = getComputerChoice(choice);
 
 //console.log(getComputerChoice(choice));
-
+let playerPoints = 0;
+let computerPoints = 0;
+let subStringWin = "you win";
+let subStringLose = "you lose";
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == "rock" && computerSelection == "rock") {
-    return "No Points. Go Again!";
+    return "no points. Go Again!";
   }
   if (playerSelection == "rock" && computerSelection == "paper") {
-    return "You Lose. Paper Beats Rock!";
+    return "you lose. paper beats rock!";
   }
 
   if (playerSelection == "rock" && computerSelection == "scissors") {
-    return "You win! Rock Beats Scissors!";
+    return "you win! rock beats scissors!";
   }
   if (playerSelection == "paper" && computerSelection == "rock") {
-    return "You win! Paper Beats Rock!";
+    return "you win! paper beats rock!";
   }
   if (playerSelection == "paper" && computerSelection == "paper") {
-    return "No Points. Go Again!";
+    return "no points. go again!";
   }
   if (playerSelection == "paper" && computerSelection == "scissors") {
-    return "You Lose. Scissors Beats Paper!";
+    return "you lose. scissors beats paper!";
   }
   if (playerSelection == "scissors" && computerSelection == "rock") {
-    return "You Lose. Scissors Beats Rock!";
+    return "you lose. scissors beats rock!";
   }
   if (playerSelection == "scissors" && computerSelection == "paper") {
-    return "You Win! Scissors Beats Paper!";
+    return "you win! scissors beats paper!";
   }
   if (playerSelection == "scissors" && computerSelection == "scissors") {
-    return "No Points. Go Again!";
+    return "no points. go again!";
   } else {
     return "Oh noes!";
   }
 }
+function tally() {
+  if (playRound().includes(subStringWin)) {
+    playerPoints++;
+  }
+}
+console.log(computerPoints);
 
 const playerSelection = "rock";
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
 // console.log(computerSelection);
 
-function game() {}
+// function game() {
+//   for (let i = 0; i < 5; i++) {
+//     function playRound(i) {}
+//   }
+//   if(function playRound())
+
+//   // const computerScore=0;
+//   // const playerScore=0;
+// }
