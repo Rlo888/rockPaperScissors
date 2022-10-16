@@ -1,6 +1,6 @@
-function getComputerChoice(arr) {
-  arr = choice;
-  const randomIndex = Math.floor(Math.random() * arr.length);
+function getComputerChoice(choices) {
+  // no need to reassign the passed in array
+  const randomIndex = Math.floor(Math.random() * choices.length);
   let result = "";
   if (randomIndex === 0) {
     result = "rock";
@@ -13,8 +13,10 @@ function getComputerChoice(arr) {
   return result;
 }
 
-const choice = ["rock", "paper", "scissors"];
-const result = getComputerChoice(choice);
+const choices = ["rock", "paper", "scissors"];
+const compChoice = getComputerChoice(choices);
+
+console.log({ compChoice });
 
 //console.log(getComputerChoice(choice));
 let playerPoints = 0;
@@ -53,16 +55,20 @@ function playRound(playerSelection, computerSelection) {
     return "Oh noes!";
   }
 }
-function tally() {
-  if (playRound().includes(subStringWin)) {
+function tally(roundResult) {
+  if (roundResult.includes(subStringWin)) {
     playerPoints++;
   }
 }
-console.log(computerPoints);
+console.log({ computerPoints }, "before");
 
 const playerSelection = "rock";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
+
+const roundResult = playRound(playerSelection, compChoice);
+tally(roundResult);
+console.log({ roundResult });
+console.log({ computerPoints }, "after");
+
 // console.log(computerSelection);
 
 // function game() {
