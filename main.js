@@ -1,6 +1,5 @@
-function getComputerChoice(arr) {
-  arr = choice;
-  const randomIndex = Math.floor(Math.random() * arr.length);
+function getComputerChoice(choice) {
+  const randomIndex = Math.floor(Math.random() * 3);
   let result = "";
   if (randomIndex === 0) {
     result = "rock";
@@ -16,11 +15,10 @@ function getComputerChoice(arr) {
 const choice = ["rock", "paper", "scissors"];
 const result = getComputerChoice(choice);
 
-//console.log(getComputerChoice(choice));
 let playerPoints = 0;
 let computerPoints = 0;
-let subStringWin = "you win";
-let subStringLose = "you lose";
+let subStringWin = "win";
+let subStringLose = "lose";
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == "rock" && computerSelection == "rock") {
     return "no points. Go Again!";
@@ -50,27 +48,25 @@ function playRound(playerSelection, computerSelection) {
   if (playerSelection == "scissors" && computerSelection == "scissors") {
     return "no points. go again!";
   } else {
-    return "Oh noes!";
+    return "oh noes!";
   }
 }
-function tally() {
-  if (playRound().includes(subStringWin)) {
-    playerPoints++;
-  }
-}
-console.log(computerPoints);
-
 const playerSelection = "rock";
 const computerSelection = getComputerChoice();
+
+const roundResult = playRound(playerSelection, computerSelection);
+
+function tally(roundResult) {
+  if (roundResult.includes(subStringWin)) {
+    playerPoints++;
+  }
+  if (roundResult.includes(subStringLose)) {
+    computerPoints++;
+  }
+}
+
 console.log(playRound(playerSelection, computerSelection));
-// console.log(computerSelection);
-
-// function game() {
-//   for (let i = 0; i < 5; i++) {
-//     function playRound(i) {}
-//   }
-//   if(function playRound())
-
-//   // const computerScore=0;
-//   // const playerScore=0;
-// }
+console.log(roundResult);
+console.log(playerPoints);
+console.log(computerPoints);
+console.log(tally(roundResult));
