@@ -62,8 +62,6 @@ function playGame() {
   }
 }
 
-//everything up to here works. playgame is adding playerpoint and computer points after 5 rounds.
-
 playGame();
 console.log({ playerPoints, computerPoints });
 function decideWinner(playerPoints, computerPoints) {
@@ -77,4 +75,4 @@ function decideWinner(playerPoints, computerPoints) {
 decideWinner();
 console.log({ playerPoints, computerPoints });
 
-console.log(decideWinner(playerPoints, computerPoints));
+alert(decideWinner(playerPoints, computerPoints));
