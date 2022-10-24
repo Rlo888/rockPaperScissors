@@ -1,9 +1,9 @@
+let playerPrompt = prompt("Choose paper, rock, or scissors");
 let playerPoints = 0;
 let computerPoints = 0;
 let subStringWin = "win";
 let subStringLose = "lose";
 const choices = ["rock", "paper", "scissors"];
-const playerSelection = "rock";
 
 function getComputerChoice() {
   const randomIndex = Math.floor(Math.random() * 3);
@@ -54,14 +54,27 @@ function playRound(playerSelection, computerSelection) {
 
 function playGame() {
   for (let i = 0; i < 5; i++) {
-    const computerSelection = getComputerChoice();
+    let playerSelection = playerPrompt;
 
-    console.log({ computerSelection });
-    const roundResult = playRound(playerSelection, computerSelection);
+    let computerSelection = getComputerChoice();
+    let roundResult = playRound(playerSelection, computerSelection);
     tally(roundResult);
-    console.log({ playerPoints });
-    console.log({ computerPoints });
-    console.log({ roundResult });
   }
 }
+
+//everything up to here works. playgame is adding playerpoint and computer points after 5 rounds.
+
 playGame();
+console.log({ playerPoints, computerPoints });
+function decideWinner(playerPoints, computerPoints) {
+  if (computerPoints == playerPoints) {
+    return "its a tie";
+  } else if (playerPoints > computerPoints) {
+    return "you win";
+  }
+  return "you lose";
+}
+decideWinner();
+console.log({ playerPoints, computerPoints });
+
+console.log(decideWinner(playerPoints, computerPoints));
