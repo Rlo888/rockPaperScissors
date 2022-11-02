@@ -68,23 +68,30 @@ function decideWinner(pPoints, cPoints) {
   }
   return "you lose";
 }
+
+function addScore() {}
 //decideWinner();
 
-//alert(decideWinner(playerPoints, computerPoints));
+//button box
+const buttonDiv = document.createElement("div");
+document.body.append(buttonDiv);
+buttonDiv.style.display = "flex";
+buttonDiv.style.flex = "space-evenly";
+//buttons style
 
 //rockButton
 const rockButton = document.createElement("button");
 rockButton.innerText = "rock";
 rockButton.classList.add("btn");
-document.body.append(rockButton);
+buttonDiv.append(rockButton);
 rockButton.addEventListener("click", function () {
-  playAndTally("rock");
+  playAndTally();
 });
 //paperButton
 const paperButton = document.createElement("button");
 paperButton.innerText = "paper";
 paperButton.classList.add("btn");
-document.body.append(paperButton);
+buttonDiv.append(paperButton);
 paperButton.addEventListener("click", function () {
   playAndTally("paper");
 });
@@ -92,7 +99,35 @@ paperButton.addEventListener("click", function () {
 const scissorsButton = document.createElement("button");
 scissorsButton.innerText = "scissors";
 scissorsButton.classList.add("btn");
-document.body.append(scissorsButton);
+buttonDiv.append(scissorsButton);
 scissorsButton.addEventListener("click", function () {
   playAndTally("scissors");
 });
+
+const btnStyle = document.querySelectorAll(".btn");
+btnStyle.forEach((button) => {
+  // @ts-ignore
+  button.style.backgroundColor = "green";
+});
+console.log(btnStyle);
+//scoreBoard to keep track of points after each round
+const scoreBoard = document.createElement("div");
+scoreBoard.style.display = "flex";
+document.body.appendChild(scoreBoard);
+
+const playerScore = document.createElement("div");
+playerScore.setAttribute("id", "playerScore");
+const header1 = document.createElement("h1");
+header1.textContent = "Player Points";
+playerScore.append(header1);
+playerScore.style.flex = "float:left,width:50%";
+scoreBoard.append(playerScore);
+
+const computerScore = document.createElement("div");
+computerScore.setAttribute("id", "computerScore");
+const header2 = document.createElement("h1");
+header2.textContent = "Computer Points";
+computerScore.append(header2);
+computerScore.style.display = "flex,float:right,width:50%";
+
+scoreBoard.append(computerScore);
